@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">AnalayzerMobile</string>
+    <string name="place_name_1">Alaska</string>
+    <string name="place_name_2">Cancún</string>
+    <string name="place_name_3">Norway</string>
+    <string name="place_name_4">Caribean</string>
+    <string name="place_description_1">Alaska, the last frontier, enchants with its vast wilderness, towering glaciers, and rugged beauty.</string>
+    <string name="place_description_2">Cancun is a vibrant coastal paradise with turquoise waters, white sandy beaches, and a lively atmosphere</string>
+    <string name="place_description_3">Norway captivates with its stunning fjords, picturesque landscapes, and a rich blend of natural beauty and cultural heritage.</string>
+    <string name="place_description_4">The Caribbean is a tropical haven, boasting crystalline waters, palm-fringed beaches, and a vibrant blend of cultures.</string>
+    <string name="about">About:</string>
+    <string name="price">%d price</string>
+
 </resources>
