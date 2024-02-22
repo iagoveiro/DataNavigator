@@ -1,26 +1,18 @@
-package com.example.analayzermobile.design
+package com.example.analayzermobile.features.components
 
-import com.example.analayzermobile.R
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import android.annotation.SuppressLint
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.outlined.DateRange
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Info
-import androidx.compose.material.icons.outlined.Person
+import androidx.compose.material.icons.rounded.DateRange
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -30,22 +22,16 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Devices
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.analayzermobile.design.PlacesToTravel
+import com.example.analayzermobile.features.screens.AllCurrencies
 
 data class NavItemState(
     val title : String,
@@ -54,11 +40,13 @@ data class NavItemState(
     val hasBadge : Boolean,
     val badgeNum : Int
 )
+
+
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview(device = Devices.NEXUS_5)
 @Composable
-fun MyApp(modifier: Modifier = Modifier) {
+fun NavItemBottomBar(modifier: Modifier = Modifier) {
+
     val items = listOf(
         NavItemState(
             title = "Home / Currencies",
@@ -69,8 +57,8 @@ fun MyApp(modifier: Modifier = Modifier) {
         ),
         NavItemState(
             title = "Trips",
-            selectedIcon = Icons.Filled.Person,
-            unselectedIcon = Icons.Outlined.Person,
+            selectedIcon = Icons.Rounded.DateRange,
+            unselectedIcon = Icons.Outlined.DateRange,
             hasBadge = false,
             badgeNum = 0
         ),
@@ -82,16 +70,13 @@ fun MyApp(modifier: Modifier = Modifier) {
             badgeNum = 0
         ),
     )
+
+
     var bottomNavState by rememberSaveable {
         mutableStateOf(0)
     }
     Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text(text = "TripAnalyzer") },
-                modifier = modifier.then(Modifier.background(Color.Blue))
-            )
-        },
+        modifier = modifier,
         bottomBar = {
             NavigationBar {
                 items.forEachIndexed { index, item ->
@@ -126,12 +111,10 @@ fun MyApp(modifier: Modifier = Modifier) {
         }
     ) { contentPadding ->
 
-
         /*
         Esta columna y su contenido es referente al nombre de cada NavItem(Home/Trips/help),
         también se modifica el Text y la Column que lo contiene
-
-        * */
+        */
         Column(
             modifier = modifier.then(Modifier.padding(contentPadding))
         ) {
@@ -157,7 +140,7 @@ fun MyApp(modifier: Modifier = Modifier) {
                 // Lista de monedas mostradas en columna
                 when (bottomNavState) {
                     0 ->
-                    AllCurrencies()
+                    AllCurrencies(navigateToMain = {})
                 }
             }
         }

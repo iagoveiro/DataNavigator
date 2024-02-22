@@ -1,11 +1,10 @@
-package com.example.analayzermobile.design
+package com.example.analayzermobile.features.screens
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -29,6 +28,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.analayzermobile.R
+import com.example.analayzermobile.design.PlacesScreenViewModel
+
+@Composable
+fun TripsScreen() {
+    print("SettingsScreen")
+    //PlacesToTravel()
+}
+
+
 
 data class Place(
     val imageResourceId: Int,
@@ -67,7 +75,6 @@ fun PlacesToTravel() {
     }
 }
 
-
 @Composable
 fun PlaceItem(
     viewModel: PlacesScreenViewModel,
@@ -91,7 +98,7 @@ fun PlaceItem(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PlacesTopAppBar(viewModel: PlacesScreenViewModel,modifier: Modifier = Modifier) {
+fun PlacesTopAppBar(viewModel: PlacesScreenViewModel, modifier: Modifier = Modifier) {
     val tituloState = viewModel.titulo.collectAsState()
 
     CenterAlignedTopAppBar(
