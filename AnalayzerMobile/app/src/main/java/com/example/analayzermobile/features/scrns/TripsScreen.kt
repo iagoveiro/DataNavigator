@@ -1,10 +1,12 @@
-package com.example.analayzermobile.features.screens
+package com.example.analayzermobile.features.scrns
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -21,21 +23,22 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.analayzermobile.R
 import com.example.analayzermobile.design.PlacesScreenViewModel
+import com.example.analayzermobile.features.components.TopGenericBar
 
 @Composable
-fun TripsScreen() {
-    print("SettingsScreen")
-    //PlacesToTravel()
+fun TripsScreen(navigateToMain: () -> Unit) {
+    PlacesToTravel(navigateToMain)
 }
-
 
 
 data class Place(
@@ -54,24 +57,38 @@ val destImages = listOf(
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
+
+
+
+
 @Composable
-fun PlacesToTravel() {
+@Preview
+fun PlacesToTravel(navigateToMain: () -> Unit = {}) {
     val viewModel: PlacesScreenViewModel = viewModel()
 
     Scaffold(
-        topBar = {
-            PlacesTopAppBar(viewModel)
-        }
+
     ) { it ->
-        LazyColumn(contentPadding = it) {
+
+        LazyColumn(
+            contentPadding = it,
+            modifier = Modifier
+                .background(Color(0xFF121111))
+                .fillMaxSize()
+                .padding(top = 65.dp)
+        ) {
             items(destImages.sortedBy { it.name }) {
                 PlaceItem(
                     viewModel,
                     place = it,
-                    modifier = Modifier.padding( end = 16.dp, bottom = 16.dp),
+                    modifier = Modifier
+                        .padding(bottom = 16.dp, start = 8.dp, end = 8.dp)
+                        .background(Color(0xFF121111)),
                 )
             }
+
         }
+        TopGenericBar(navigateToMain = navigateToMain, text = "Places to travel")
     }
 }
 
@@ -83,12 +100,10 @@ fun PlaceItem(
 ) {
     val nombre = place.name
     Card(
-        modifier = modifier.clickable { viewModel.cuandoClickeEnUnElemento(nombre) }
+        modifier = modifier.clickable { viewModel.cuandoClickeEnUnElemento(nombre) },
     ) {
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(dimensionResource(R.dimen.padding_small))
+            modifier = Modifier.fillMaxWidth()
         ) {
             PlaceIcon(place.imageResourceId)
             PlaceInformation(place.name, place.price)
@@ -96,40 +111,16 @@ fun PlaceItem(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun PlacesTopAppBar(viewModel: PlacesScreenViewModel, modifier: Modifier = Modifier) {
-    val tituloState = viewModel.titulo.collectAsState()
-
-    CenterAlignedTopAppBar(
-        title = {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                verticalAlignment = Alignment.Top
-            ) {
-                Text(
-                    text = tituloState.value,
-                    style = MaterialTheme.typography.displayMedium
-                )
-            }
-        },
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(top = 0.dp)
-    )
-}
 
 @Composable
 fun PlaceIcon(
-    @DrawableRes placeIcon: Int,
-    modifier: Modifier = Modifier
+    @DrawableRes placeIcon: Int
 ) {
     Image(
-        modifier = modifier
+        modifier = Modifier
             .size(dimensionResource(R.dimen.image_size))
             .padding(dimensionResource(R.dimen.padding_small))
-            .clip(MaterialTheme.shapes.small),
+            .clip(MaterialTheme.shapes.large),
         contentScale = ContentScale.Crop,
         painter = painterResource(placeIcon),
 
@@ -141,14 +132,12 @@ fun PlaceIcon(
 @Composable
 fun PlaceInformation(
     placeName: String,
-    placeCost: Int,
-    modifier: Modifier = Modifier
+    placeCost: Int
 ) {
-    Column(modifier = modifier) {
+    Column() {
         Text(
             text = placeName,
-            style = MaterialTheme.typography.displayMedium,
-            modifier = Modifier.padding(top = dimensionResource(R.dimen.padding_small))
+            style = MaterialTheme.typography.displayMedium
         )
         Text(
             text = stringResource(R.string.price, placeCost),

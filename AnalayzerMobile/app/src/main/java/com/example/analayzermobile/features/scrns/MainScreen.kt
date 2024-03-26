@@ -1,4 +1,4 @@
-package com.example.analayzermobile.features.screens
+package com.example.analayzermobile.features.scrns
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -14,6 +14,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Create
 import androidx.compose.material.icons.filled.DateRange
+import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Person
@@ -38,8 +39,14 @@ import com.example.analayzermobile.features.components.BottomMainBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen(navigateToCurrencies: () -> Unit, navigateToTrips: () -> Unit, navigateToOptions: () -> Unit) {
-    Scaffold(modifier = Modifier.background(Color(0xFF121111)),
+fun MainScreen(
+    navigateToCurrencies: () -> Unit,
+    navigateToTrips: () -> Unit,
+    navigateToOptions: () -> Unit,
+    navigateToExit: () -> Unit
+) {
+    Scaffold(
+        modifier = Modifier.background(Color(0xFF121111)),
         bottomBar = {
             BottomMainBar()
         },
@@ -50,7 +57,12 @@ fun MainScreen(navigateToCurrencies: () -> Unit, navigateToTrips: () -> Unit, na
                 .background(Color(0xFF121111))
                 .padding(paddingValues), contentAlignment = Alignment.Center
         ) {
-            MainScreenButtons(navigateToCurrencies, navigateToTrips, navigateToOptions)
+            MainScreenButtons(
+                navigateToCurrencies,
+                navigateToTrips,
+                navigateToOptions,
+                navigateToExit
+            )
 
         }
     }
@@ -86,7 +98,12 @@ fun ButtonOptions(icon: ImageVector, text: String, containerColor: Color, onClic
 
 
 @Composable
-fun MainScreenButtons(navigateToCurrencies: () -> Unit, navigateToTrips: () -> Unit, navigateToOptions: () -> Unit) {
+fun MainScreenButtons(
+    navigateToCurrencies: () -> Unit,
+    navigateToTrips: () -> Unit,
+    navigateToOptions: () -> Unit,
+    navigateToExit: () -> Unit
+) {
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Row(horizontalArrangement = Arrangement.SpaceEvenly) {
@@ -100,7 +117,7 @@ fun MainScreenButtons(navigateToCurrencies: () -> Unit, navigateToTrips: () -> U
                 icon = Icons.Default.LocationOn,
                 text = "Trips",
                 containerColor = Color(0xFF282727),
-                onClick = {navigateToTrips() })
+                onClick = { navigateToTrips() })
         }
         Spacer(modifier = Modifier.size(25.dp))
 
@@ -141,13 +158,13 @@ fun MainScreenButtons(navigateToCurrencies: () -> Unit, navigateToTrips: () -> U
 
                 text = "Options",
                 containerColor = Color(0xFF282727),
-                onClick = {navigateToOptions() })
+                onClick = { navigateToOptions() })
             Spacer(modifier = Modifier.size(25.dp))
             ButtonOptions(
-                icon = Icons.Default.Info,
-                text = "Help",
+                icon = Icons.Default.ExitToApp,
+                text = "Exit",
                 containerColor = Color(0xFF282727),
-                onClick = { })
+                onClick = { navigateToExit() })
         }
     }
 }

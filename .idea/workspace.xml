@@ -5,48 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6fa4893b-7e8b-40d0-a09d-5449e63f00c4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/example/analyzermobile/ExampleInstrumentedTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/analyzermobile/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/analyzermobile/ui/theme/Color.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/analyzermobile/ui/theme/Theme.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/analyzermobile/ui/theme/Type.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/analyzermobile/ExampleUnitTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalayzerMobile/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AnalayzerMobile/.idea/kotlinc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalayzerMobile/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/AnalayzerMobile/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalayzerMobile/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AnalayzerMobile/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalayzerMobile/app/src/main/java/com/example/analayzermobile/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AnalayzerMobile/app/src/main/java/com/example/analayzermobile/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalayzerMobile/app/src/main/java/com/example/analayzermobile/design/LoginViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AnalayzerMobile/app/src/main/java/com/example/analayzermobile/design/LoginViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalayzerMobile/app/src/main/java/com/example/analayzermobile/features/components/BottomBarNavItemState.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalayzerMobile/app/src/main/java/com/example/analayzermobile/features/components/SideBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AnalayzerMobile/app/src/main/java/com/example/analayzermobile/features/components/SideBar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalayzerMobile/app/src/main/java/com/example/analayzermobile/features/screens/CurrenciesScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AnalayzerMobile/app/src/main/java/com/example/analayzermobile/features/scrns/CurrenciesScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalayzerMobile/app/src/main/java/com/example/analayzermobile/features/screens/LoginScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AnalayzerMobile/app/src/main/java/com/example/analayzermobile/features/scrns/LoginScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalayzerMobile/app/src/main/java/com/example/analayzermobile/features/screens/MainScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AnalayzerMobile/app/src/main/java/com/example/analayzermobile/features/scrns/MainScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalayzerMobile/app/src/main/java/com/example/analayzermobile/features/screens/SettingsScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AnalayzerMobile/app/src/main/java/com/example/analayzermobile/features/scrns/SettingsScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalayzerMobile/app/src/main/java/com/example/analayzermobile/features/screens/TripsScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AnalayzerMobile/app/src/main/java/com/example/analayzermobile/features/scrns/TripsScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalayzerMobile/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/AnalayzerMobile/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,16 +35,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "C:/Proyectos/TripAnalyzer/AnalayzerMobile"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Proyectos/TripAnalyzer/AnalayzerMobile&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

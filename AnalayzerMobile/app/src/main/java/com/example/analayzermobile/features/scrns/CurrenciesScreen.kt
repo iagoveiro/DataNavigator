@@ -1,4 +1,4 @@
-package com.example.analayzermobile.features.screens
+package com.example.analayzermobile.features.scrns
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -29,6 +29,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.analayzermobile.R
+import com.example.analayzermobile.features.components.TopGenericBar
 
 @Composable
 fun CurrenciesScreen(navigateToMain: () -> Unit) {
@@ -58,7 +59,8 @@ val currencyList = listOf(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AllCurrencies(navigateToMain: () -> Unit
+fun AllCurrencies(
+    navigateToMain: () -> Unit
 ) {
     val sortedCurrencyList = currencyList.sortedBy { it.name }
 
@@ -69,7 +71,7 @@ fun AllCurrencies(navigateToMain: () -> Unit
         containerColor = Color(0xFF121111)
     ) { scaffoldPadding ->
 
-        LazyColumn(contentPadding = scaffoldPadding, modifier = Modifier.padding(top =  55.dp)) {
+        LazyColumn(contentPadding = scaffoldPadding, modifier = Modifier.padding(top = 55.dp)) {
             itemsIndexed(sortedCurrencyList) { index, item ->
                 val backgroundColor = if (index % 2 == 0) {
                     Color(0xFF282727)
@@ -87,6 +89,7 @@ fun AllCurrencies(navigateToMain: () -> Unit
 
                     Image(
                         painter = painterResource(id = item.imageResourceId),
+                        alignment = Alignment.CenterStart,
                         contentDescription = null,
                         modifier = Modifier.size(20.dp)
                     )
@@ -94,7 +97,7 @@ fun AllCurrencies(navigateToMain: () -> Unit
                     Text(
                         text = item.name,
                         color = Color(0xFFCDE640),
-                        modifier = Modifier.clickable { /* Acción al hacer clic */ },
+                        modifier = Modifier.clickable { },
                         fontSize = 18.sp,
                     )
                     Spacer(modifier = Modifier.width(265.dp))
@@ -108,25 +111,7 @@ fun AllCurrencies(navigateToMain: () -> Unit
                 }
             }
         }
+        TopGenericBar(navigateToMain = navigateToMain, text = "Currencies")
     }
-    TopAppBar(modifier = Modifier,
-        title = {
-            Text(
-                text = "Currencies",
-                color = Color(0xFFCDE640),
-                modifier = Modifier
-            )
-        },
-        navigationIcon = {
-            IconButton(onClick = {navigateToMain()}) {
-                Icon(
-                    imageVector = Icons.Default.ArrowBack,
-                    contentDescription = "Currencies",
-                    modifier = Modifier.background(Color(0xFF121111)),
-                    Color(0xFFCDE640)
-                )
-            }
-        }
-    )
 
 }

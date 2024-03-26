@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.example.analayzermobile.features.screens
+package com.example.analayzermobile.features.scrns
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -32,35 +32,38 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.analayzermobile.R
 import com.example.analayzermobile.design.LoginViewModel
 import kotlinx.coroutines.launch
 
+
 @Composable
-fun LoginScreen(viewModel: LoginViewModel) {
+fun LoginScreen(viewModel: LoginViewModel = hiltViewModel(), navigateToMain: () -> Unit) {
     Box(
         Modifier
             .fillMaxSize()
             .padding()
             .background(Color(0xFF121111))
     ) {
-        Box(modifier = Modifier
-            .padding(16.dp)
-            .fillMaxSize()) {
-            Login(Modifier.align(Alignment.Center), viewModel)
+        Box(
+            modifier = Modifier
+                .padding(16.dp)
+                .fillMaxSize()
+        ) {
+            Login(Modifier.align(Alignment.Center), viewModel, navigateToMain)
         }
 
     }
 }
 
 @Composable
-fun Login(modifier: Modifier, viewModel: LoginViewModel) {
+fun Login(modifier: Modifier, viewModel: LoginViewModel, navigateToMain: () -> Unit) {
 
     val email: String by viewModel.email.observeAsState(initial = "")
     val password: String by viewModel.password.observeAsState(initial = "")
     val loginEnable: Boolean by viewModel.loginEnable.observeAsState(initial = false)
     val isLoading: Boolean by viewModel.isLoading.observeAsState(initial = false)
-    val coroutineScope = rememberCoroutineScope()
 
     if (isLoading) {
         Box(Modifier.fillMaxSize()) {
@@ -76,7 +79,7 @@ fun Login(modifier: Modifier, viewModel: LoginViewModel) {
             Spacer(modifier = Modifier.padding(4.dp))
             ForgotPass(Modifier.align(Alignment.End))
             Spacer(modifier = Modifier.padding(16.dp))
-            LoginButton(loginEnable) { coroutineScope.launch { viewModel.onLoginSelected() } }
+            LoginButton(loginEnable) { navigateToMain() }
         }
     }
 }
@@ -142,20 +145,26 @@ fun ForgotPass(modifier: Modifier) {
 }
 
 @Composable
-fun LoginButton(loginEnable: Boolean, onLoginSelected: () -> Unit) {
+fun LoginButton(loginEnable: Boolean, navigateToMain: () -> Unit) {
+
     Button(
-        onClick = { onLoginSelected() },
+        onClick = {
+            if (loginEnable) {
+                navigateToMain()
+            }
+        },
+
         modifier = Modifier
             .fillMaxWidth()
             .height(50.dp),
+
         colors = ButtonDefaults.buttonColors(
             containerColor = Color(0xFFCDE640),
-            disabledContentColor = Color(0xFF908787),
-            contentColor = Color.White
+            disabledContentColor = Color(0xFF908787)
         ),
         enabled = loginEnable
     ) {
-        Text(text = "Login", color = Color(0xFF121111), fontSize = 20.sp)
+        Text(text = "Login", color = Color(0xFF313131), fontSize = 20.sp)
 
     }
 }

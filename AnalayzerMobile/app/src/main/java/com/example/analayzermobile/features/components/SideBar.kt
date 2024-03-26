@@ -45,76 +45,73 @@ import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@Preview(device = Devices.NEXUS_5)
+@Preview()
 @Composable
 fun SideBarApp() {
-
     var isExpanded by remember {
         mutableStateOf(false)
     }
 
-    val widthAnim by animateDpAsState(targetValue = if (isExpanded) 160.dp else 65.dp)
-
-
     Scaffold() {
-        Box(){
-        Column(
-            Modifier.fillMaxSize(),
-            Arrangement.Center,
-            Alignment.CenterHorizontally
-        ) {
-            Text(text = "Home Page")
-        }
-        Column(
-            Modifier
-                .fillMaxHeight()
-                // .width(widthAnim)
-                .width(if (isExpanded) 160.dp else 60.dp)
-                .background(Color.LightGray)
-                .padding(horizontal = 20.dp, vertical = 10.dp),
-            horizontalAlignment = Alignment.Start
-        ) {
-            Icon(
-                Icons.Default.Menu,
-                modifier = Modifier.clickable {
-                    isExpanded = !isExpanded
-                },
-                contentDescription = null, tint = Color.White
-            )
+        Box() {
+            Column(
+                Modifier.fillMaxSize(),
+                Arrangement.Center,
+                Alignment.CenterHorizontally
+            ) {
+                Text(text = "Home Page")
+            }
+            Column(
+                Modifier
+                    .fillMaxHeight()
+                    .width(if (isExpanded) 160.dp else 60.dp)
+                    .background(Color(0xFF282727))
+                    .padding(horizontal = 20.dp, vertical = 10.dp),
+                horizontalAlignment = Alignment.Start
+            ) {
+                Icon(
+                    Icons.Default.Menu,
+                    modifier = Modifier.clickable {
+                        isExpanded = !isExpanded
+                    },
+                    contentDescription = null,
+                    tint = Color(0xFFD7D5D5)
+                )
 
-            Spacer(modifier = Modifier.height((30.dp)))
-            DrawerItem(Icons.Default.CheckCircle, "Currencies", isExpanded)
-            DrawerItem(Icons.Default.Person, "Profile", isExpanded)
-            DrawerItem(Icons.Default.Settings, "Settings", isExpanded)
-            DrawerItem(Icons.Default.Create, "Notes", isExpanded)
-            DrawerItem(Icons.Default.Info, "About", isExpanded)
-            DrawerItem(Icons.Default.Share, "Share", isExpanded)
+                Spacer(modifier = Modifier.height((30.dp)))
+                SideBarItem(Icons.Default.CheckCircle, "Currencies", isExpanded)
+                SideBarItem(Icons.Default.Person, "Profile", isExpanded)
+                SideBarItem(Icons.Default.Create, "Notes", isExpanded)
+                SideBarItem(Icons.Default.Info, "About", isExpanded)
+                SideBarItem(Icons.Default.Share, "Share", isExpanded)
+                SideBarItem(Icons.Default.Settings, "Settings", isExpanded)
+            }
         }
-    }
     }
 }
 
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun DrawerItem(icon: ImageVector, title: String, expanded:Boolean){
+fun SideBarItem(icon: ImageVector, title: String, expanded: Boolean) {
     Row(
-        Modifier.fillMaxWidth().padding(vertical = 5.dp),
+        Modifier
+            .fillMaxWidth()
+            .padding(vertical = 5.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-
-        Icon(icon, contentDescription = null, tint = Color.White)
-        if(expanded){
+        if (!expanded) {
+            Icon(icon, contentDescription = null, tint = Color(0xFFD7D5D5))
+        } else {
+            Icon(icon, contentDescription = null, tint = Color(0xFFCDE640))
             Spacer(Modifier.width(8.dp))
             Text(
                 text = title,
-                color = Color.White,
+                color = Color(0xFFCDE640),
                 fontSize = 16.sp,
                 modifier = Modifier.padding(vertical = 8.dp)
             )
         }
-
-
     }
 }
 
