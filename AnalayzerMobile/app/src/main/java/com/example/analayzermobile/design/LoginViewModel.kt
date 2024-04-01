@@ -1,24 +1,27 @@
 package com.example.analayzermobile.design
 
 import android.util.Patterns
+import androidx.compose.runtime.MutableState
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
 class LoginViewModel : ViewModel() {
 
-    private val _email = MutableLiveData<String>()
-    val email: LiveData<String> = _email
+    private val _email = MutableStateFlow<String>("")
+    val email: StateFlow<String> = _email
 
-    private val _password = MutableLiveData<String>()
-    val password: LiveData<String> = _password
+    private val _password = MutableStateFlow<String>("")
+    val password: StateFlow<String> = _password
 
-    private val _loginEnable = MutableLiveData<Boolean>()
-    val loginEnable: LiveData<Boolean> = _loginEnable
+    private val _loginEnable = MutableStateFlow<Boolean>(false)
+    val loginEnable: StateFlow<Boolean> = _loginEnable
 
-    private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = _isLoading
+    private val _isLoading = MutableStateFlow<Boolean>(true)
+    val isLoading: StateFlow<Boolean> = _isLoading
 
     fun onLoginChanged(email: String, password: String) {
         _email.value = email

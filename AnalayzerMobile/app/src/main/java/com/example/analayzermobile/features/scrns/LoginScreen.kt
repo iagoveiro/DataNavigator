@@ -108,7 +108,7 @@ fun MailField(email: String, onTextFieldChanged: (String) -> Unit) {
         singleLine = true,
         maxLines = 1,
         colors = TextFieldDefaults.textFieldColors(
-            textColor = Color(0xFF030303),
+
             unfocusedIndicatorColor = Color.Transparent,
             focusedIndicatorColor = Color.Transparent
         )
@@ -128,7 +128,7 @@ fun PassField(password: String, onTextFieldChanged: (String) -> Unit) {
         singleLine = true,
         maxLines = 1,
         colors = TextFieldDefaults.textFieldColors(
-            textColor = Color(0xFF030303),
+            //textColor = Color(0xFF030303),
             unfocusedIndicatorColor = Color.Transparent,
             focusedIndicatorColor = Color.Transparent
         )

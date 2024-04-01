@@ -8,9 +8,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import androidx.navigation.NavHost
+import androidx.navigation.compose.NavHost
 import androidx.navigation.Navigation
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.analayzermobile.design.LoginViewModel
 import com.example.analayzermobile.features.components.SideBarApp
 import com.example.analayzermobile.features.scrns.MainScreen
